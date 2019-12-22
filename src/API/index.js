@@ -1,6 +1,17 @@
 import axios from "axios";
+import EndpointFactory from "axios-endpoints";
 
-export default axios.create({
+const axiosInstance = axios.create({
   baseURL: "https://it-blog-posts.herokuapp.com/api/",
   responseType: "json"
 });
+
+const Endpoint = EndpointFactory(axiosInstance);
+
+
+export default {
+  rooms       : new Endpoint("rooms"),
+  roomsStatus : new Endpoint("rooms/status"),
+  bookings    : new Endpoint("roomBookings"),
+  visitors    : new Endpoint("visitors")
+}
