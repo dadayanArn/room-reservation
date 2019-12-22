@@ -1,0 +1,33 @@
+.rooms {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.rooms-side_left {
+  width: 28%;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rooms-side_right {
+  width: 70%;
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rooms-statusPanel {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rooms-form {
+  height: calc(100% - 80px - 20px);
+}

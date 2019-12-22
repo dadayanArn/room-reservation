@@ -1,22 +1,68 @@
-.App {
-  text-align: center;
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
+* {
+  box-sizing: border-box;
+  font-family: Nunito;
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root {
+  background: #F3F4F6;
+  height: 100%;
+}
+
+.head {
+  height: 70px;
+  background-color: #2C353E;
+}
+
+nav {
+  height: 45px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #FFF;
+  box-shadow: 0px 0px 20px rgba(183, 190, 199, 0.25);
 }
 
-.App-link {
-  color: #09d3ac;
+nav ul {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+nav ul > li {
+  padding-right: 20px;
+  list-style: none;
+}
+
+nav ul > li a {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #6C757D;
+  text-decoration: none;
+}
+
+.main {
+  width: 80%;
+  height: calc(100vh - 115px);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.activeRoute {
+  color: #3F87FD;
+}
+
+.no-match {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 25px;
 }
