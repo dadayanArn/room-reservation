@@ -2,7 +2,7 @@ import axios from "axios";
 import EndpointFactory from "axios-endpoints";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/",
+  baseURL: "https://it-blog-posts.herokuapp.com/api/",
   responseType: "json"
 });
 

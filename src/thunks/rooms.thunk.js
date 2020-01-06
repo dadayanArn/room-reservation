@@ -1,7 +1,17 @@
 import api from '../api';
-import { getRoomsRequest, getRoomsSuccsess, getRoomsFailure, getStatusRequest, getStatusSuccsess, getStatusFailure } from '../actions';
+import { 
+  getRoomsRequest, 
+  getRoomsSuccsess, 
+  getRoomsFailure, 
+  getStatusRequest, 
+  getStatusSuccsess, 
+  getStatusFailure,
+  createRoomRequest,
+  createRoomSuccsess,
+  createRoomFailure,
+} from '../actions';
 
-export const getRoomsThunk = () => async (dispatch) => {
+export const getRoomsThunk = () => async (dispatch, getState) => {
   try {
     dispatch(getRoomsRequest());
     const response = await api.rooms.get();
@@ -24,5 +34,20 @@ export const getStatusThunk = () => async (dispatch) => {
     dispatch(getStatusSuccsess(response.data.status));
   } catch (error) {
     dispatch(getStatusFailure());
+  }
+}
+
+export const createRoomThunk = (data) => async (dispatch) => {
+  try {
+    dispatch(createRoomRequest());
+    const response = await api.rooms.post(data);
+    if (response.status !== 200) {
+      throw new Error('Cannot get status')
+    }
+    dispatch(createRoomSuccsess(response.data));
+    dispatch(getRoomsThunk());
+    dispatch(getStatusThunk());
+  } catch (error) {
+    dispatch(createRoomFailure());
   }
 }

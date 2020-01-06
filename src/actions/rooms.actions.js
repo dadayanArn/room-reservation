@@ -23,3 +23,17 @@ export const getRoomsSuccsess = (data) => ({
 export const getRoomsFailure = () => ({
   type: 'GET_ROOMS_FAILURE'
 })
+
+export const createRoomRequest = (data) => ({
+  type: 'CREATE_ROOM_REQUEST',
+  payload: data
+})
+
+export const createRoomSuccsess = (data) => ({
+  type: 'CREATE_ROOM_SUCCSESS',
+  payload: data
+})
+
+export const createRoomFailure = () => ({
+  type: 'CREATE_ROOM_FAILURE'
+})
