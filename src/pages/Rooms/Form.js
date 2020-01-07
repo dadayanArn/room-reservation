@@ -10,11 +10,19 @@ const Form = (props) => {
       [name]: value
     })
   }
-  const { floor, beds, balcony, roomId } = room;
 
+  const handleSelect = ({ target: { name, value } }) => {
+    setRoom({
+      ...room,
+      [name]: value === 'Yes'
+    })
+  }
+  
+  const { floor, beds, balcony, roomId } = room;
   return (
     <div className='form-wrapper'>
       <div>
+        <div className='form-title'>Add New Room</div>
         <label className="form-label" htmlFor="">
           Floor
           <input name='floor' onChange={onFormChange} className='form-item form-input' type="number" value={floor}/>
@@ -25,9 +33,9 @@ const Form = (props) => {
         </label>
         <label className="form-label" htmlFor="">
           Balcony
-          <select onChange={onFormChange} className='form-item form-select' value={Boolean(balcony) ? 'Yes' : 'No'} name="balcony">
-            <option value={false}>No</option>
-            <option value={true}>Yes</option>
+          <select onChange={handleSelect} className='form-item form-select' value={Boolean(balcony) ? 'Yes' : 'No'} name="balcony">
+            <option value='No'>No</option>
+            <option value='Yes'>Yes</option>
           </select>
         </label>
         <label className="form-label" htmlFor="">
